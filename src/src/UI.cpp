@@ -8,7 +8,7 @@
 #define MENU_ITEMS 3
 
 UI::UI()
-{ u8g = new U8GLIB_SSD1306_128X64(U8G_I2C_OPT_NONE|U8G_I2C_OPT_DEV_0);
+{ u8g = new U8GLIB_SSD1306_128X64(U8G_I2C_OPT_NONE|U8G_I2C_OPT_DEV_0);  //create library object
   u8g->setColorIndex(1);      
 }
 
@@ -189,7 +189,6 @@ void UI::drawOverviewPage(Menu &menu, int battery, bool charge, int temp) {
 
    u8g->setFont(bg7x14B);
    const char *menu_strings[3] = { "Светлини", "Парктроник", "Дистанционно"};
-  //const char *menu_strings[3] = { "Тяло", "Среда", "Още"};
    u8g->setDefaultForegroundColor(); 
   for( int i = 1; i <= MENU_ITEMS; i++ ) 
   { 
@@ -210,7 +209,6 @@ void UI::drawOverviewPage(Menu &menu, int battery, bool charge, int temp) {
 void UI::drawStopWatchPage(Menu &menu) //first page Lights
 {  u8g->drawStr(35,14,"Светлини"); 
    printSkier(menu.currentColor());  
-  // if(capNum==1) u8g->drawStr(25,45,"Спускане..."); // if run is in progress print 
    printFooter();
 }
 
@@ -222,8 +220,8 @@ void UI::drawResultsPage(int dis) //second page Distance
   u8g->drawStr(30,14,"Парктроник");
 
   u8g->drawStr(5,29,"Дистанция"); //left part of the screen
-     u8g->setFont(bg7x14B);
-//  u8g->setFont(bg9x18B);  
+    u8g->setFont(bg9x18B); // bigger font
+
   stringCode = String(dis);
   newCode = (const char*) stringCode.c_str(); 
   u8g->setFont(bg7x14B);
@@ -253,13 +251,10 @@ void UI::drawResultsPage(int dis) //second page Distance
 void UI::drawOthersPage(Menu &menu, char* code) // 3th page
 {
   char* newCode=code;  
- // String stringCode; 
   u8g->setDefaultForegroundColor();  
-  u8g->drawStr(26,14,"Дистанционно"); // Best results
+  u8g->drawStr(26,14,"Дистанционно"); // Header
   u8g->setFont(u8g_font_profont12); 
   u8g->drawStr(10,35,newCode);
- // Serial.println("Draw: ");
-  //Serial.println(newCode);
   u8g->setFont(bg7x14B);
   printFooter();
 }

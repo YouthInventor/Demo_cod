@@ -13,5 +13,4 @@ void IrqButton :: setup(int pin,void (*buttonPressedCb)())
 
  bool IrqButton:: result() 
     { return ledStatus;  } 
-   bla bla bla
 */

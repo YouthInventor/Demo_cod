@@ -9,5 +9,4 @@ public:
 private:
     int m_echoPin;
     int m_trigerPin;
-    //static Timer *s_timers[3];
 };

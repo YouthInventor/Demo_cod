@@ -9,7 +9,6 @@ public:
     int getOverflow(); 
     void saveLastOverflow();
     int  getLastOverflow(); 
-   // void resetOverflow();
    
 private: //methods
     void addOverflow();

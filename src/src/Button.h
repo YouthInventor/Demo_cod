@@ -8,5 +8,5 @@ public:
 private:
     int m_pin;
     int m_lastPressedTime; // set this to currentTime() when button is pressed
-void (*m_buttonPressedCb)();
+    void (*m_buttonPressedCb)();
 };

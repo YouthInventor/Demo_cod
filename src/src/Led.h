@@ -2,7 +2,6 @@
 
 class Led{
 public:
-   // Led();
     void setup(int pin);
     void turnOn();
     void turnOff();
@@ -10,5 +9,4 @@ public:
 private:
     int m_status;
     int m_pin;
-    //static Timer *s_timers[3];
 };

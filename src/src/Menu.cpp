@@ -9,11 +9,10 @@ void Menu::setup()
 
 void Menu::previous() 
 {  
-// if(m_currentPage==Page::Overview) prevOverview();
   switch (m_currentPage)
  {   case Page::Overview:  prevOverview(); 
-          break; //ready line
-     case Page::StopWatch: prevColor();
+          break; 
+     case Page::StopWatch: prevColor();  //first page
           break;
         case Page::Results: //    nextResult();
             break;
@@ -42,7 +41,6 @@ void Menu::next()
 
 
 void Menu::prevOverview() {
- Serial.print("Selected page in Overview =");
     switch (m_currentSelectedPage) {
         case Page::StopWatch: { m_currentSelectedPage = Page::Others;  Serial.println("3");  }
              break;
@@ -56,13 +54,13 @@ void Menu::prevOverview() {
 
 
 void Menu::nextOverview() {
- Serial.print("Selected page in Overview =");
+ 
     switch (m_currentSelectedPage) {
-        case Page::StopWatch: { m_currentSelectedPage = Page::Results;  Serial.println("2");  }
+        case Page::StopWatch: { m_currentSelectedPage = Page::Results;    }
              break;
-        case Page::Results: { m_currentSelectedPage = Page::Others; Serial.println("3");  }
+        case Page::Results: { m_currentSelectedPage = Page::Others;   }
              break;
-        case Page::Others: { m_currentSelectedPage = Page::StopWatch; Serial.println("1");  }
+        case Page::Others: { m_currentSelectedPage = Page::StopWatch;  }
              break;
     } 
    
@@ -73,11 +71,11 @@ void Menu::select() {
     switch (m_currentPage) {
        case Page::Overview: selectOverview();  // 
             break;
-       case Page::StopWatch:{ m_currentPage = Page::Overview; Serial.println("Back in Overview 1"); } // back button
+       case Page::StopWatch:{ m_currentPage = Page::Overview;  } // back button
             break;  
-       case Page::Results: { m_currentPage = Page::Overview; Serial.println("Back in Overview 2"); }
+       case Page::Results: { m_currentPage = Page::Overview; }
             break;
-       case Page::Others: { m_currentPage = Page::Overview; Serial.println("Back in Overview 3"); }
+       case Page::Others: { m_currentPage = Page::Overview;  }
             break;
     }
    
@@ -85,14 +83,13 @@ void Menu::select() {
 
 void Menu::selectOverview() {
     m_currentPage = m_currentSelectedPage;  
-   
-    Serial.print("Selected page is ");
+
     switch (m_currentSelectedPage) {
-        case Page::StopWatch: { m_currentSelectedPage = Page::StopWatch;  Serial.println("1");  }
+        case Page::StopWatch: { m_currentSelectedPage = Page::StopWatch;   }
              break;
-        case Page::Results: { m_currentSelectedPage = Page::Results; Serial.println("2");  }
+        case Page::Results: { m_currentSelectedPage = Page::Results;   }
              break;
-        case Page::Others: { m_currentSelectedPage = Page::Others; Serial.println("3");  }
+        case Page::Others: { m_currentSelectedPage = Page::Others;   }
              break;
     } 
 }

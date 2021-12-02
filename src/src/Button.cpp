@@ -12,8 +12,7 @@ void Button::loop() {
     if (digitalRead(m_pin) == LOW) 
     { 
         m_buttonPressedCb(); 
-        delay(200);
-     //извикай функцията буттон свързана с обекта
+        delay(200); // fix debounce
     /*
       long currentTime=millis(); 
       if(currentTime - m_lastPressedTime>180)
