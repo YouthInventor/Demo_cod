@@ -9,5 +9,3 @@ void setup() {
 void loop() {
 app.loop();
 }
-//C:\Users\Kosta\Documents\PlatformIO\Projects\Demo_code 
-//
